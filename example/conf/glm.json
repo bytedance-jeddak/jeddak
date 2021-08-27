@@ -1,0 +1,69 @@
+[
+    {
+        "task_type": "task_chain",
+        "party_names": ["142", "154"],
+        "messenger_server": [
+            ["127.0.0.1:9092"],
+            ["127.0.0.1:9092"]
+        ],
+        "messenger_type": [
+            "kafka",
+            "kafka"
+        ],
+        "save_model": true
+    },
+    {
+        "task_type": "data_loader",
+        "task_role": ["guest", "host"],
+        "input_data_source": ["csv", "csv"],
+        "train_data_path": [
+            "{project_root_dir}/example/data/party_a_train.data",
+            "{project_root_dir}/example/data/party_b_train.data"
+        ],
+        "validate_data_path": [null, null],
+        "convert_sparse_to_index": [true, true]
+    },
+    {
+        "task_type": "aligner",
+        "task_role": [
+            "guest",
+            "host"
+        ],
+        "align_mode": [
+            "cm20",
+            "cm20"
+        ],
+        "output_id_only": [
+            false,
+            false
+        ],
+        "sync_intersection": [
+            true,
+            true
+        ]
+    },
+    {
+        "task_type": "logistic_regression",
+        "task_role": ["guest", "host"],
+        "penalty": ["l2", "l2"],
+        "tol": [1e-4, 1e-4],
+        "C": [1.0, 1.0],
+        "fit_intercept": [true, true],
+        "intercept_scaling": [1.0, 1.0],
+        "solver": ["gradient_descent", "gradient_descent"],
+        "max_iter": [100, 100],
+        "learning_rate": [0.05, 0.05],
+        "balanced_class_weight": [true, true],
+        "homomorphism": ["cpaillier", "cpaillier"],
+        "key_size": [1024, 1024],
+        "gamma": [0.9, 0.9],
+        "epsilon": [1e-8, 1e-8],
+        "batch_fraction": [0.1, 0.1],
+        "train_validate_freq": [5, 5],
+        "batch_type": ["batch", "batch"]
+    },
+    {
+        "task_type": "evaluate",
+        "task_role": ["guest", "host"]
+    }
+]

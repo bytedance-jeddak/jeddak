@@ -1,0 +1,36 @@
+[
+    {
+        "task_type": "task_chain",
+        "party_names": ["142", "154"],
+        "messenger_server": [
+            ["127.0.0.1:9092"],
+            ["127.0.0.1:9092"]
+        ],
+        "messenger_type": [
+            "kafka",
+            "kafka"
+        ],
+        "save_model": false
+    },
+    {
+        "task_type": "model_loader",
+        "task_role": ["guest", "host"],
+        "model_id": ["2021043016562560472", "2021043016562560472"],
+        "action": ["load", "load"]
+    },
+    {
+        "task_type": "predict_offline",
+        "task_role": ["guest", "host"],
+        "model_id": ["2021043016562560472", "2021043016562560472"],
+        "input_data_path": [
+            "{project_root_dir}/example/data/test_one_hot1.csv",
+            "{project_root_dir}/example/data/test_one_hot_host1.csv"
+        ]
+    },
+    {
+        "task_type": "model_loader",
+        "task_role": ["guest", "host"],
+        "model_id": ["2021043016562560472", "2021043016562560472"],
+        "action": ["unload", "unload"]
+    }
+]

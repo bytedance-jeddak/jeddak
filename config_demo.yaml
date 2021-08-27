@@ -1,0 +1,9 @@
+host: localhost
+port: 8090
+debug: True
+syncer_server: localhost:6379
+syncer_type: redis
+party_name: "142"
+reset_task_queue: False
+threaded: False
+db_url: null

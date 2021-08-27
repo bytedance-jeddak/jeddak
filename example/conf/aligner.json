@@ -1,0 +1,33 @@
+[
+    {
+        "task_type": "task_chain",
+        "party_names": ["142", "154"],
+        "messenger_server": [
+            ["127.0.0.1:9092"],
+            ["127.0.0.1:9092"]
+        ],
+        "messenger_type": [
+            "kafka",
+            "kafka"
+        ],
+        "save_model": true
+    },
+    {
+        "task_type": "data_loader",
+        "task_role": ["guest", "host"],
+        "input_data_source": ["csv", "csv"],
+        "input_data_path": [
+            "{project_root_dir}/example/data/party_a_train.data",
+            "{project_root_dir}/example/data/party_b_train.data"
+        ],
+        "convert_sparse_to_index": [true, true]
+    },
+    {
+        "task_type": "aligner",
+        "task_role": ["guest", "host"],
+        "align_mode": ["cm20", "cm20"],
+        "output_id_only": [true, true],
+        "sync_intersection": [true, true],
+        "key_size": [1024, 1024]
+    }
+]

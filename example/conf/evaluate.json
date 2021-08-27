@@ -1,0 +1,44 @@
+[
+    {
+        "task_type": "task_chain",
+        "party_names": ["142", "154"],
+        "messenger_server": [
+            ["127.0.0.1:9092"],
+            ["127.0.0.1:9092"]
+        ],
+        "messenger_type": [
+            "kafka",
+            "kafka"
+        ],
+        "save_model": true
+    },
+    {
+        "task_type": "data_loader",
+        "task_role": ["guest", "host"],
+        "input_data_source": ["csv", "csv"],
+        "input_data_path": [
+            "{project_root_dir}/example/data/party_a_train.data",
+            "{project_root_dir}/example/data/party_b_train.data"
+        ],
+        "convert_sparse_to_index": [true, true]
+    },
+    {
+        "task_type": "logistic_regression",
+        "task_role": ["guest", "host"],
+        "penalty": ["l2", "l2"],
+        "tol": [1e-4, 1e-4],
+        "C": [1.0, 1.0],
+        "fit_intercept": [true, true],
+        "intercept_scaling": [1.0, 1.0],
+        "solver": ["gradient_descent", "gradient_descent"],
+        "max_iter": [100, 100],
+        "learning_rate": [0.05, 0.05],
+        "balanced_class_weight": [true, true],
+        "homomorphism": ["cpaillier", "cpaillier"],
+        "key_size": [1024, 1024]
+    },
+    {
+        "task_type": "evaluate",
+        "task_role": ["guest", "host"]
+    }
+]

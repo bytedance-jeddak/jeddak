@@ -1,0 +1,27 @@
+[
+    {
+        "task_type": "task_chain",
+        "party_names": ["142"],
+        "messenger_server": [
+            ["127.0.0.1:9092"]
+        ],
+        "messenger_type": [
+            "kafka"
+        ],
+        "save_model": true
+    },
+    {
+        "task_type": "data_loader",
+        "task_role": ["sole"],
+        "input_data_source": ["csv"],
+        "input_data_path": [
+            "{project_root_dir}/example/data/party_a_train.data"
+        ],
+        "convert_sparse_to_index": [true, true]
+    },
+    {
+        "task_type": "data_saver",
+        "task_role": ["sole"],
+        "output_data_source": ["csv"]
+    }
+]
